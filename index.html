@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Portfólio - Moisés Lana </title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsivo.css">
+</head>
+
+<body>
+    <div class="particulas"></div>
+
+
+    <nav class="navegacao">
+        <div class="menu-mobile" id="menu-mobile">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul class="menu" id="menu">
+            <li><a href="#inicio" class="menu-link">Início</a></li>
+            <li><a href="#sobre" class="menu-link">Sobre</a></li>
+            <li><a href="#projetos" class="menu-link">Projetos</a></li>
+            <li><a href="#contatos" class="menu-link">Contato</a></li>
+        </ul>
+    </nav>
+
+
+    <main class="cabecalho" id="inicio">
+        <img src="img/moises.png" alt="Foto de Moisés Lana" class="foto-perfil">
+        <h1>Moisés Lana</h1>
+        <p class="cabecalho-sub-titulo">Desenvolvedor Front End</p>
+    </main>
+
+    <section id="sobre" class="sobre">
+        <h2 class="sobre-titulo">Sobre Mim</h2>
+        <div class="sobre-caixa">
+            <p class="sobre-paragrafo">Meu nome é Moisés Lameo Lana, sou estudante de Ciência da Computação na UNA e sou
+                apaixonado por tecnologia e programação. Atualmente, estou focado em me tornar Desenvolvedor Front-End,
+                estudando HTML, CSS e JavaScript e criando projetos práticos. Sou dedicado, curioso e motivado a evoluir
+                rapidamente na área. Busco minha
+                primeira oportunidade profissional para aplicar meus conhecimentos e crescer como desenvolvedor.</p>
+        </div>
+    </section>
+
+    <section id="projetos" class="projetos">
+        <h2 class="projetos-titulo">Meus Projetos</h2>
+        <div class="projetos-caixa">
+
+            <div class="projetos-card">
+                <img src="img/fundo-magico.png" class="projetos-imagens">
+                <div class="caixa-textos-projeto">
+                    <h3 class="info-projetos">Fundo Mágico</h3>
+                    <p class="paragrafo-projetos">
+                        Gerador de backgrounds personalizados que transforma descrições em código
+                        HTML e CSS pronto para uso.
+                    </p>
+                </div>
+            </div>
+
+            <div class="projetos-card">
+                <img src="img/loja-apple.png" class="projetos-imagens">
+                <div class="caixa-textos-projeto">
+                    <h3 class="info-projetos">Apple Store</h3>
+                    <p class="paragrafo-projetos">
+                        Landing page inspirada na Apple Store com carrossel interativo de
+                        produtos desenvolvido em HTML, CSS e JavaScript.
+                    </p>
+                </div>
+            </div>
+
+            <div class="projetos-card">
+                <img src="img/microsoft.png" class="projetos-imagens">
+                <div class="caixa-textos-projeto">
+                    <h3 class="info-projetos">Microsoft</h3>
+                    <p class="paragrafo-projetos">
+                        Réplica do menu e da seção principal da Microsoft com foco em
+                        fidelidade visual e responsividade usando HTML e CSS.
+                    </p>
+                </div>
+            </div>
+
+            <div></div>
+
+            <div class="projetos-card">
+                <img src="img/lain-login.png" class="projetos-imagens">
+                <div class="caixa-textos-projeto">
+                    <h3 class="info-projetos">Tela - Login</h3>
+                    <p class="paragrafo-projetos">
+                        Interface de login moderna e responsiva desenvolvida com HTML e CSS.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+
+        </div>
+
+
+
+
+    </section>
+
+    <section id="contatos" class="contatos">
+        <h2 class="contatos-titulo">Entre em Contato</h2>
+        <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
+            <div class="grupo-form">
+                <input placeholder="Nome" class="campo-form" id="nome">
+            </div>
+            <div class="grupo-form">
+                <textarea class="campo-form" placeholder="Digite sua Mensagem" rows="6" id="mensagem"></textarea>
+            </div>
+
+            <button type="submit" class="botao-form">Enviar Whatsapp</button>
+
+        </form>
+    </section>
+
+    <script>
+        function enviarWhats(event) {
+            event.preventDefault();
+
+            const nome = document.getElementById('nome').value;
+            const mensagem = document.getElementById('mensagem').value;
+            const telefone = '5531984774142';
+
+            const texto = `Olá! Me chamo ${nome}, ${mensagem}`;
+            const msgFormatada = encodeURIComponent(texto);
+
+            const url = `https://wa.me/${telefone}?text=${msgFormatada}`;
+
+            window.open(url, '_blank');
+
+            const menuMobile = document.getElementById("menu-mobile");
+            const menu = document.getElementById("menu");
+
+            menuMobile.addEventListener("click", () => {
+                menu.classList.toggle("ativo");
+            });
+
+            // Fecha menu ao clicar no link
+            document.querySelectorAll(".menu-link").forEach(link => {
+                link.addEventListener("click", () => {
+                    menu.classList.remove("ativo");
+                });
+            });
+        }
+
+    </script>
+
+</body>
+
+</html>
